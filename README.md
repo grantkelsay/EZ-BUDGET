@@ -8,9 +8,9 @@ This project was spawned from the need for an easy-to-use and intuitive budgetin
 ## Current Features
 
 - **Custom Percentages**: Dynamically adjust the percent of your monthly income you want to designate to the three main budget categories.
-- 
+  
 - **Reactive Expenses**: As the user enters expenses, the total budget gets decremented in real time so you always know how much you have left for that category.
-- 
+  
 - **Dark Mode**: Reduce eye strain with our beautiful dark mode.
 
 ## Getting Started
