@@ -1,20 +1,16 @@
 "use client";
 
 import { useState } from 'react'
-import { ChartPieIcon, ArrowDownIcon, BanknotesIcon } from '@heroicons/react/24/solid'
+import { ArrowDownIcon, BanknotesIcon } from '@heroicons/react/24/solid'
 
 interface WelcomeMessageProps {
-    displayWelcome: boolean;
     setDisplayWelcome: (value: boolean) => void; 
-    displayFields: boolean;
     setDisplayFields: (value: boolean) => void; 
 }
 
-const WelcomeMessage: React.FC<WelcomeMessageProps> = ({ displayWelcome, setDisplayWelcome, displayFields, setDisplayFields }) => {
+const WelcomeMessage: React.FC<WelcomeMessageProps> = ({ setDisplayWelcome, setDisplayFields }) => {
 
     const [animationClass, setAnimationClass] = useState('');
-
-
 
     const handleButtonClick = () => {
         setAnimationClass('fade-out');

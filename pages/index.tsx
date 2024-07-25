@@ -76,8 +76,8 @@ const HomePage = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
 
         {displayWelcome && <WelcomeMessage 
-          setDisplayWelcome={setDisplayWelcome} displayWelcome={displayWelcome}
-          setDisplayFields={setDisplayFields} displayFields={displayFields}
+          setDisplayWelcome={setDisplayWelcome}
+          setDisplayFields={setDisplayFields}
         />}
 
         {displayFields && <Income 
