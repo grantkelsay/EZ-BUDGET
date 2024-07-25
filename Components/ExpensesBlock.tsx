@@ -20,11 +20,10 @@ const ExpensesBlock : React.FC<ExpensesBlockProps> = ({
     handleSpendingDescChange,
 }) => {
   return (
-    <div className="md:col-span-2 lg:col-span-2 grid gap-2">
+    <div className="md:col-span-2 lg:col-span-2 grid gap-2 animate-fadeIn">
         <div className="bg-[#4F8FC0] rounded-lg shadow-lg grid gap-4">
 
             <BlockHeading label={label}/>
-        
 
             <div className="p-6 grid grid-cols-2 gap-4">
 
