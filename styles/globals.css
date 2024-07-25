@@ -9,3 +9,16 @@
     @apply text-[#26648E] cursor-pointer font-bold text-[17px]
   }
 }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}

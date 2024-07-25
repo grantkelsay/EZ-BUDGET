@@ -2,13 +2,12 @@ import React from 'react';
 
 const Nav = () => {
   return (
-    <div className='w-full bg-[#152129] top-0 h-[12vh] shadow-lg'>
-      <div className='flex items-center justify-between w-[90%] mx-auto h-[100%]'>
-        <h1 className='font-bold md:text-[30px] flex-[0.8] cursor-pointer text-[#4F8FC0]'>
-          MONTHLY <span className='text-[#26648E]'>BUDGETING</span> TOOL
-        </h1>
-        <div className='nav-link'>Home</div>
-        <div className='nav-link'>ABOUT</div>
+    <div className='bg-[#26648E] h-[12vh] shadow-lg'>
+      <div className='flex-col px-10'>
+        <p className='md:text-[30px] lg:text-[10px] text-[#4F8FC0] font-bold m-0'>
+          EZ BUDGET
+        </p>
+        <p className='mt-0 text-[#53D2DC]'>Financial Tool</p>
       </div>
     </div>
   );
