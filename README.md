@@ -1,4 +1,4 @@
-# EZ BUDGET Monthly Financial Tool
+![image](https://github.com/user-attachments/assets/b7cc4be8-2b49-468c-94c9-c7bd4e9e26c4)# EZ BUDGET Monthly Financial Tool
 
 ## Overview
 
@@ -24,7 +24,12 @@ This project was spawned from the need for an easy-to-use and intuitive budgetin
 
 ## Screenshots
 
-...
+![ss2](![image](https://github.com/user-attachments/assets/c8ac58eb-b9cd-4d3a-947f-24c3f6f83741))
+
+![ss3](![image](https://github.com/user-attachments/assets/a60873f9-ec56-4730-97cf-794812b5f90e))
+
+![ss4](![image](https://github.com/user-attachments/assets/ea348028-c7b2-46f9-8d7b-23f37cf89a79))
+
 
 ## Tech Stack
 
