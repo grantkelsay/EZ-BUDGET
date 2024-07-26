@@ -21,8 +21,8 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = ({ setDisplayWelcome, setD
     };
 
     return (
-        <div className={`flex flex-col justify-between h-screen w-screen animate-fadeIn overflow-hidden ${animationClass}`}>
-            <div className="flex flex-col items-center max-w-full max-h-full justify-center mt-60">
+        <div className={`flex flex-col h-screen w-screen animate-fadeIn overflow-hidden ${animationClass}`}>
+            <div className="flex flex-col items-center max-w-full max-h-full mt-60">
                 <h2 className="font-bold text-[#53D2DC] text-[50px]">Ready to create your budget?</h2>
                 <p className="font-light text-[#53D2DC]">Click the button below</p>
                 <ArrowDownIcon className='h-4 w-4 text-[#53D2DC]'/>
@@ -35,7 +35,7 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = ({ setDisplayWelcome, setD
                     <p>Create Budget</p>
                 </button>
             </div> 
-            <div className="flex justify-center items-center text-center p-10 opacity-60 text-white">
+            <div className="flex justify-center mt-60 items-center text-center p-10 opacity-60 text-white">
                 <p>Created By Grant Kelsay <br />github.com/grantkelsay | linkedin.com/in/grant-kelsay</p>
             </div>
         </div>

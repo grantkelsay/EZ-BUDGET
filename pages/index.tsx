@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from 'react'
-import Income from '@/Components/Income'
-import BudgetDisplay from '@/Components/BudgetDisplay'
+import { useState } from 'react';
+import Income from '@/Components/Income';
+import BudgetDisplay from '@/Components/BudgetDisplay';
 import WelcomeMessage from '@/Components/WelcomeMessage';
 import ExpensesBlock from '@/Components/ExpensesBlock';
+import Nav from '@/Components/Nav';
 
 const HomePage = () => {
 
+	// Define hooks
   	const [income, setIncome] = useState(0);
     const [savings, setSavings] = useState(0);
     const [needs, setNeeds] = useState(0);
@@ -27,6 +29,7 @@ const HomePage = () => {
 
     const inputsArray = Array.from({ length: 10 });
 
+	// Whenever the user enters a need expense, update the monthly needs budget
     const handleNeedsSpendingChange = (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
         const newNeedSpending = [...needSpending];
         const newValue = parseInt(e.target.value) || 0; // Handle NaN case
@@ -40,6 +43,7 @@ const HomePage = () => {
         setMonthlyNeeds(prevMonthlyNeeds => prevMonthlyNeeds - newValue + oldValue);
     };
 
+	// Whenever the user enters a need expense, update the monthly needs budget description
     const handleNeedsSpendingDescChange = (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
         const newNeedSpendingDesc = [...needSpendingDesc];
         const newVal = e.target.value; // Handle NaN case
@@ -48,6 +52,7 @@ const HomePage = () => {
         setNeedSpendingDesc(newNeedSpendingDesc);
     }; 
 
+	// Whenever the user enters a wants expense, update the monthly wants budget
     const handleWantSpendingChange = (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
         const newWantSpending = [...wantSpending];
         const newValue = parseInt(e.target.value) || 0; // Handle NaN case
@@ -61,72 +66,82 @@ const HomePage = () => {
         setMonthlyWants(prevMonthlyWants => prevMonthlyWants - newValue + oldValue);
     };
 
+	// Whenever the user enters a wants expense, update the monthly wants budget description
     const handleWantSpendingDescChange = (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
         const newWantSpendingDesc = [...wantSpendingDesc];
         const newVal = e.target.value; // Handle NaN case
 
         newWantSpendingDesc[index] = newVal;
-        setNeedSpendingDesc(newWantSpendingDesc);
+        setWantSpendingDesc(newWantSpendingDesc);
     };
 
-
 	return (
-		<div className='overflow-hidden bg-[#303c43] min-h-screen min-w-screen'>
-			<div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
+		<div className='absolute inset-x-0 top-0 z-50'>
 
-				{displayWelcome && <WelcomeMessage 
-					setDisplayWelcome={setDisplayWelcome}
-					setDisplayFields={setDisplayFields}
-				/>}
+			<Nav />
 
-				{displayFields && <Income 
-					income={income}
-					setIncome={setIncome}
-					savings={savings}
-					setSavings={setSavings}
-					needs={needs}
-					setNeeds={setNeeds}
-					wants={wants}
-					setWants={setWants}
-					error={error}
-					setError={setError}
-					monthlyNeeds={monthlyNeeds}
-					setMonthlyNeeds={setMonthlyNeeds}
-					monthlySavings={monthlySavings}
-					setMonthlySavings={setMonthlySavings}
-					monthlyWants={monthlyWants}
-					setMonthlyWants={setMonthlyWants}
-					setDisplayBudget={setDisplayBudget}
-				/>}
+			<div className='bg-[#303c43] min-h-screen min-w-screen overflow-hidden'>
+				<div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
 
-				{displayBudget && <BudgetDisplay 
-					monthlyNeeds={monthlyNeeds}
-					monthlySavings={monthlySavings}
-					monthlyWants={monthlyWants}
-					setMonthlyNeeds={setMonthlyNeeds}
-					setMonthlySavings={setMonthlySavings}
-					setMonthlyWants={setMonthlyWants}
-				/>}
+					{/* Display the welcome page */}
+					{displayWelcome && <WelcomeMessage 
+						setDisplayWelcome={setDisplayWelcome}
+						setDisplayFields={setDisplayFields}
+					/>}
 
-				{displayBudget && <ExpensesBlock 
-					label="NEEDS EXPENSES" 
-					inputsArray={inputsArray} 
-					spending={needSpending} 
-					handleSpendingChange={handleNeedsSpendingChange} 
-					spendingDesc={needSpendingDesc} 
-					handleSpendingDescChange={handleNeedsSpendingDescChange} 
-				/>}
+					{/* Display the income panel to the user */}
+					{displayFields && <Income 
+						income={income}
+						setIncome={setIncome}
+						savings={savings}
+						setSavings={setSavings}
+						needs={needs}
+						setNeeds={setNeeds}
+						wants={wants}
+						setWants={setWants}
+						error={error}
+						setError={setError}
+						monthlyNeeds={monthlyNeeds}
+						setMonthlyNeeds={setMonthlyNeeds}
+						monthlySavings={monthlySavings}
+						setMonthlySavings={setMonthlySavings}
+						monthlyWants={monthlyWants}
+						setMonthlyWants={setMonthlyWants}
+						setDisplayBudget={setDisplayBudget}
+						/>}
 
-				{displayBudget && <ExpensesBlock 
-					label="WANTS EXPENSES" 
-					inputsArray={inputsArray} 
-					spending={wantSpending} 
-					handleSpendingChange={handleWantSpendingChange} 
-					spendingDesc={wantSpendingDesc} 
-					handleSpendingDescChange={handleWantSpendingDescChange} 
-				/>}
+					{/* Display the budget display with the budget breakdown */}
+					{displayBudget && <BudgetDisplay 
+						monthlyNeeds={monthlyNeeds}
+						monthlySavings={monthlySavings}
+						monthlyWants={monthlyWants}
+						setMonthlyNeeds={setMonthlyNeeds}
+						setMonthlySavings={setMonthlySavings}
+						setMonthlyWants={setMonthlyWants}
+						/>}
 
-			</div>  
+					{/* Display the expenses block */}
+					{displayBudget && <ExpensesBlock 
+						label="NEEDS EXPENSES" 
+						inputsArray={inputsArray} 
+						spending={needSpending} 
+						handleSpendingChange={handleNeedsSpendingChange} 
+						spendingDesc={needSpendingDesc} 
+						handleSpendingDescChange={handleNeedsSpendingDescChange} 
+						/>}
+
+					{/* Display the expenses block */}
+					{displayBudget && <ExpensesBlock 
+						label="WANTS EXPENSES" 
+						inputsArray={inputsArray} 
+						spending={wantSpending} 
+						handleSpendingChange={handleWantSpendingChange} 
+						spendingDesc={wantSpendingDesc} 
+						handleSpendingDescChange={handleWantSpendingDescChange} 
+						/>}
+
+				</div>  
+			</div>
 		</div>
 	)
 }
